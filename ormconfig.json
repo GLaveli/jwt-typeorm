@@ -1,0 +1,22 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5433,
+  "username": "auth",
+  "password": "123456",
+  "database": "auth",
+  "entities": [
+    "./src/entities/*.ts"
+  ],
+  "migrations": [
+    "./src/database/migrations/*.ts",
+    "./src/database/seeds/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": [
+      "./src/database/migrations",
+      "./src/database/seeds"
+    ]
+  },
+  "sinchronize": true
+}

@@ -1,0 +1,88 @@
+{
+ "openapi": "3.0.0",
+ "info": {
+  "title": "Endpoint documentation",
+  "description": "This document show the usage about all routes",
+  "termsOfService": "/terms",
+  "contact": {
+   "email": "gvl@certi.org.br"
+  },
+  "version": "1.2.15"
+ },
+ "servers": [
+  {
+   "url": "http://localhost:3000",
+   "description": "API de teste"
+  }
+ ],
+ "paths": {
+  "/user": {
+   "post": {
+    "sumary": "cadastro de usuario",
+    "description": "Esta rota é responsavel pelo registro e busca de usuarios",
+    "tags": [
+     "user"
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/users"
+       },
+       "examples": {
+        "user": {
+         "value": {
+          "name": "John Doe",
+          "password": "Jhon_doe123",
+          "email": "jhd@certi.org.br",
+          "acronym": "jhd"
+         }
+        }
+       }
+      }
+     }
+    },
+    "responses": {
+     "401": {
+      "description": "Unautorized"
+     },
+     "400": {
+      "description": "User already exists"
+     },
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "$ref": "#/components/schemas/users"
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "users": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "password": {
+      "type": "string"
+     },
+     "email": {
+      "type": "string"
+     },
+     "acronym": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ }
+}
